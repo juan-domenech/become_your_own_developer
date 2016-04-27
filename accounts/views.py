@@ -3,6 +3,8 @@ from django.core.urlresolvers import reverse
 from django.contrib import messages, auth
 from django.template.context_processors import csrf
 from accounts.forms import UserRegistrationForm, UserLoginForm
+from django.contrib.auth.decorators import login_required
+
 
 def login(request):
     if request.method == 'POST':
@@ -24,3 +26,17 @@ def login(request):
     args = {'form': form}
     args.update(csrf(request))
     return render(request, 'login.html', args)
+
+
+
+@login_required(login_url='/login/')
+def profile(request):
+    return render(request, 'profile.html')
+
+
+
+def logout(request):
+    auth.logout(request)
+    messages.success(request, 'You have successfully logged out')
+    # return render(request, 'index.html')
+    return redirect('/')
