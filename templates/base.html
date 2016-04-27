@@ -21,7 +21,7 @@
             <!-- <li><a href="#">Contact</a></li> -->
 
             {% if user.email %}
-                <li><a href="{% url 'logout' %}">Log Out</a></li>
+
                 <li><a href="/profile/">Logged as {{ user.email }}</a></li>
             {% else %}
                 <li><a href="{% url 'login' %}">Log In</a></li>
@@ -34,7 +34,7 @@
                 <li class="active"><a href="/admin/">Admin</a></li>
             {% endif %}
         </ul>
-        <h1><span class="fui-settings-16 muted">stack</span><p id="logo" class="lead">The Trials of a Bootcamp Developer</p></h1>
+        <h1><span class="fui-settings-16 muted">Become Your Own Developer</span><p id="logo" class="lead">It is at your finger tips!</p></h1>
     </div>
 </div>
 
