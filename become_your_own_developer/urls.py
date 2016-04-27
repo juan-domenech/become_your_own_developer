@@ -15,7 +15,12 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from django.views.generic import RedirectView
 
 urlpatterns = [
+    # Admin Site
     url(r'^admin/', admin.site.urls),
+    # In case of empty URL we send eveybody to /blog/
+    url(r'^$', RedirectView.as_view(url='/blog/')),
+    #
 ]
