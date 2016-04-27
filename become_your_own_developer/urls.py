@@ -16,6 +16,7 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from django.views.generic import RedirectView
+from blog import views as blog_views
 
 urlpatterns = [
     # Admin Site
@@ -23,4 +24,10 @@ urlpatterns = [
     # In case of empty URL we send eveybody to /blog/
     url(r'^$', RedirectView.as_view(url='/blog/')),
     #
+    url(r'^blog/$', blog_views.post_list ),
+    url(r'^blog/(?P<id>\d+)/$', blog_views.post_detail ),
+
+
 ]
+
+
