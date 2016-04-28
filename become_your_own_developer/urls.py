@@ -27,6 +27,7 @@ urlpatterns = [
     # Blog App
     url(r'^blog/$', blog_views.post_list ),
     url(r'^blog/(?P<id>\d+)/$', blog_views.post_detail ),
+    url(r'^post/edit/(?P<pk>\d+)/$', blog_views.edit_post, name='edit_post' ),
     # Accounts App
     #url(r'^register/$', register, name='register'),
     url(r'^profile/$', profile,name='profile'),
