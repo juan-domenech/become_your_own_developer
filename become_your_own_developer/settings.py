@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'accounts',
     'django.contrib.sites',
     'django_forms_bootstrap',
+    'django.contrib.flatpages',
 
 ]
 
@@ -56,6 +57,7 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
 ]
 
 ROOT_URLCONF = 'become_your_own_developer.urls'
