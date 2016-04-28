@@ -25,7 +25,7 @@
                 <li><a href="/profile/">Logged as {{ user.email }}</a></li>
             {% else %}
                 <li><a href="{% url 'login' %}">Log In</a></li>
-                <li><a href="{% url 'register' %}">Register</a></li>
+
             {% endif %}
 
             <li><a href="/pages/about/">About</a></li>

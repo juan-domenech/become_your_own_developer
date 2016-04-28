@@ -171,3 +171,5 @@ STATICFILES_DIRS=( os.path.join(BASE_DIR,"static"),)
 # Custom authentication
 AUTH_USER_MODEL = 'accounts.User'
 AUTHENTICATION_BACKENDS = ('accounts.backends.EmailAuth',)
+
+SITE_ID = 1
