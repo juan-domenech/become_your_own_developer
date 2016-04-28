@@ -175,3 +175,10 @@ AUTH_USER_MODEL = 'accounts.User'
 AUTHENTICATION_BACKENDS = ('accounts.backends.EmailAuth',)
 
 SITE_ID = 1
+
+# Obtain Stripe credentials from environment variables
+STRIPE_PUBLISHABLE = os.environ['STRIPE_PUBLISHABLE']
+STRIPE_SECRET = os.environ['STRIPE_SECRET']
+
+print "***",STRIPE_PUBLISHABLE
+print "***",STRIPE_SECRET

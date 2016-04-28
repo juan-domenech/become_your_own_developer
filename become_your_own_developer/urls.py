@@ -17,7 +17,7 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from django.views.generic import RedirectView
 from blog import views as blog_views
-from accounts.views import profile, login, logout
+from accounts.views import profile, login, logout, register
 
 urlpatterns = [
     # Admin Site
@@ -29,7 +29,7 @@ urlpatterns = [
     url(r'^blog/(?P<id>\d+)/$', blog_views.post_detail ),
     url(r'^post/edit/(?P<pk>\d+)/$', blog_views.edit_post, name='edit_post' ),
     # Accounts App
-    #url(r'^register/$', register, name='register'),
+    url(r'^register/$', register, name='register'),
     url(r'^profile/$', profile,name='profile'),
     url(r'^login/$', login, name='login'),
     url(r'^logout/$',logout, name='logout'),
