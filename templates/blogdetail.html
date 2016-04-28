@@ -22,9 +22,7 @@
                         <p><button class="btn btn-info" onclick="location.href='/blog'">Back to the Blog</button>  <button class="btn btn-warning" onclick="location.href='/post/edit/{{ post.pk }}'">Edit Post</button>
                         <p><p><strong>Author:</strong> {{ post.author }} | {{ post.published_date }} | <strong>Views</strong> {{ post.views }} | <strong>Tag </strong>{{ post.tag }}</p>
 
-                        {% load disqus_tags %}
-                        {% set_disqus_title post.title %}
-                        {% disqus_show_comments %}
+
 
                     </div>
                 </div>

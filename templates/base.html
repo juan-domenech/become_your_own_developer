@@ -21,7 +21,7 @@
             <!-- <li><a href="#">Contact</a></li> -->
 
             {% if user.email %}
-
+                <li><a href="{% url 'logout' %}">Log Out</a></li>
                 <li><a href="/profile/">Logged as {{ user.email }}</a></li>
             {% else %}
                 <li><a href="{% url 'login' %}">Log In</a></li>

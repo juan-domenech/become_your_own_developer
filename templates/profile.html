@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+    <h2>Your profile:</h2>
+    <p>You are logged in as {{ user.email }}</p>
+    <p>Your last successful login was on: {{ user.last_login }}</p>
+    <p>(Joined this site on {{  user.date_joined }})</p>
+    {% if user.is_superuser %}
+        <p class="label label-danger">You are administrator</p>
+    {% endif %}
+    {% if user.stripe_id %}
+        <p>Stripe ID: {{  user.stripe_id }}</p>
+    {% else %}
+        <p>(You have no Strip ID)</p>
+    {% endif %}
+
+    <h2>Subscription Details</h2>
+    <p>You have {{ user.subscription_end|timeuntil}} left on your subscription</p>
+    <p>To cancel your subscription click 'Cancel Subscription' below</p>
+
+
+
+    <script type="text/javascript">
+        function cancelSubscriptionCheck() {
+            if (confirm('Are you sure you want to cancel?')) {
+                return true;
+            }
+
+            return false;
+        }
+    </script>
+
+{% endblock %}
