@@ -182,3 +182,9 @@ SITE_ID = 1
 # Obtain Stripe credentials from environment variables
 STRIPE_PUBLISHABLE = os.environ['STRIPE_PUBLISHABLE']
 STRIPE_SECRET = os.environ['STRIPE_SECRET']
+
+# Optional images attached to a post
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+
+

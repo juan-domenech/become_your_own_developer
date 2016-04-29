@@ -18,6 +18,8 @@ from django.contrib import admin
 from django.views.generic import RedirectView
 from blog import views as blog_views
 from accounts.views import profile, login, logout, register
+# Media
+from .settings import MEDIA_ROOT
 
 # Heroku requisite
 from django.contrib.staticfiles import views as static_views
@@ -42,6 +44,9 @@ urlpatterns = [
     url(r'^pages/',include('django.contrib.flatpages.urls')),
     # Static folder for Heroku
     url(r'^static/(?P<path>.*)$', static_views.serve),
+    # Media
+    # url(r'^media/(?P<path>.*)$', static_views.serve,{'document_root':MEDIA_ROOT}),
+    url(r'^media/(?P<path>.*)$', 'django.views.static.serve',{'document_root':MEDIA_ROOT}),
 
 ]
 
