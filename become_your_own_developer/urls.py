@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-from django.views.generic import RedirectView
+#from django.views.generic import RedirectView
 from blog import views as blog_views
 from accounts.views import profile, login, logout, register, cancel_subscription, subscriptions_webhook
 # Media
@@ -26,6 +26,11 @@ from django.contrib.staticfiles import views as static_views
 
 # Home
 from become_your_own_developer.views import home
+
+# Forums
+from threads import views as forum_views
+
+
 
 urlpatterns = [
 
@@ -63,6 +68,15 @@ urlpatterns = [
     # Stripe URLs
     url(r'^cancel_subscription/$', cancel_subscription, name='cancel_subscription'),
     url(r'^subscriptions_webhook/$', subscriptions_webhook, name='subscriptions_webhook'),
+
+    # Forum URLs
+    url(r'^forum/$', forum_views.forum),
+    url(r'^threads/(?P<subject_id>\d+)/$', forum_views.threads, name='threads'),
+    url(r'^new_thread/(?P<subject_id>\d+)/$', forum_views.new_thread, name='new_thread'),
+    url(r'^thread/(?P<thread_id>\d+)/$', forum_views.thread, name='thread'),
+    url(r'^post/new/(?P<thread_id>\d+)/$', forum_views.new_post, name='new_post'),
+    url(r'^post/edit/(?P<thread_id>\d+)/$', forum_views.edit_post, name='edit_post'),
+    url(r'^post/delete/(?P<thread_id>\d+)/(?P<post_id>\d+)/$', forum_views.delete_post, name='delete_post'),
 
 ]
 

@@ -18,18 +18,19 @@
         <ul class="nav nav-pills pull-right">
             <li><a href="/">Home</a></li>
             <li><a href="/blog/">Blog</a></li>
-            <li><a href="/post/new/">Create a post</a></li>
+            <li><a href="/post/new/">Create a Blog Post</a></li>
+            <li><a href="/forum/">Forum</a></li>
             <!-- <li><a href="#">Contact</a></li> -->
 
+            <li><a href="/pages/about/">About</a></li>
+
             {% if user.email %}
-                <li><a href="{% url 'logout' %}">Log Out</a></li>
                 <li><a href="/profile/">Logged as {{ user.email }}</a></li>
+                <li><a href="{% url 'logout' %}">Log Out</a></li>
             {% else %}
                 <li><a href="{% url 'login' %}">Log In</a></li>
                 <li><a href="{% url 'register' %}">Register</a></li>
             {% endif %}
-
-            <li><a href="/pages/about/">About</a></li>
 
             {% if user.is_superuser %}
                 <li class="active"><a href="/admin/">Admin</a></li>

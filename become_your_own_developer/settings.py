@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'django_forms_bootstrap',
     'django.contrib.flatpages',
+    'threads',
+    'polls',
 
 ]
 
@@ -105,8 +107,6 @@ try:
     if 'CLEARDB_DATABASE_URL' in os.environ:
         url = urlparse.urlparse(os.environ['CLEARDB_DATABASE_URL'])
 
-        #print "***url",url
-
         # Ensure default database exists.
         DATABASES['default'] = DATABASES.get('default', {})
 
@@ -121,8 +121,6 @@ try:
 
         if url.scheme == 'mysql':
             DATABASES['default']['ENGINE'] = 'django.db.backends.mysql'
-
-        #print "***",DATABASES
 
 except Exception:
     print 'Unexpected error:', sys.exc_info()
@@ -182,6 +180,7 @@ SITE_ID = 1
 # Obtain Stripe credentials from environment variables
 STRIPE_PUBLISHABLE = os.environ['STRIPE_PUBLISHABLE']
 STRIPE_SECRET = os.environ['STRIPE_SECRET']
+
 
 # Optional images attached to a post
 MEDIA_URL = '/media/'
