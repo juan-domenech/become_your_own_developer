@@ -24,14 +24,19 @@ from .settings import MEDIA_ROOT
 # Heroku requisite
 from django.contrib.staticfiles import views as static_views
 
+# Home
+from become_your_own_developer.views import home
 
 urlpatterns = [
 
     # Admin Site
     url(r'^admin/', admin.site.urls),
 
-    # In case of empty URL we send eveybody to /blog/
-    url(r'^$', RedirectView.as_view(url='/blog/')),
+    # # In case of empty URL we send eveybody to /blog/
+    # url(r'^$', RedirectView.as_view(url='/blog/')),
+
+    # Home
+    url(r'^$', home, name='home'),
 
     # Blog App
     url(r'^blog/$', blog_views.post_list ),
