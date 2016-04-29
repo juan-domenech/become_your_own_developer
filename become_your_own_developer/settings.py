@@ -168,14 +168,14 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 # Heroku requisite
-STATIC_ROOT =  os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Our static files folder
-STATICFILES_DIRS=( os.path.join(BASE_DIR,"static"),)
+STATICFILES_DIRS = ( os.path.join(BASE_DIR,"static"),)
 
 # Custom authentication
 AUTH_USER_MODEL = 'accounts.User'
-AUTHENTICATION_BACKENDS = ('accounts.backends.EmailAuth',)
+AUTHENTICATION_BACKENDS = ('django.contrib.auth.backends.ModelBackend','accounts.backends.EmailAuth',)
 
 SITE_ID = 1
 

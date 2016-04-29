@@ -42,6 +42,7 @@ urlpatterns = [
     url(r'^pages/',include('django.contrib.flatpages.urls')),
     # Static folder for Heroku
     url(r'^static/(?P<path>.*)$', static_views.serve),
+
 ]
 
 
