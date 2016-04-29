@@ -167,6 +167,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+# Heroku requisite
+STATIC_ROOT = 'staticfiles'
+
 # Our static files folder
 STATICFILES_DIRS=( os.path.join(BASE_DIR,"static"),)
 
