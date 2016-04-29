@@ -57,8 +57,8 @@ def register(request):
     if request.method == 'POST':
         form = UserRegistrationForm(request.POST)
 
-        print "POST",request.POST
-        print "form",form
+        #print "POST",request.POST
+        #print "form",form
 
         if form.is_valid():
             try:
@@ -108,7 +108,10 @@ def cancel_subscription(request):
     try:
         customer = stripe.Customer.retrieve(request.user.stripe_id)
 
+        print customer
+
         customer.cancel_subscription(at_period_end=True)
+
     except Exception, e:
         messages.error(request, e)
 
