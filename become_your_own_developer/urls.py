@@ -19,6 +19,10 @@ from django.views.generic import RedirectView
 from blog import views as blog_views
 from accounts.views import profile, login, logout, register
 
+# Heroku requisite
+from django.contrib.staticfiles import views as static_views
+
+
 urlpatterns = [
     # Admin Site
     url(r'^admin/', admin.site.urls),
@@ -36,7 +40,8 @@ urlpatterns = [
     url(r'^logout/$',logout, name='logout'),
     # Flat Pages
     url(r'^pages/',include('django.contrib.flatpages.urls')),
-
+    # Static folder for Heroku
+    url(r'^static/(?P<path>.*)$', static_views.serve),
 ]
 
 
